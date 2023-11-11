@@ -24,13 +24,13 @@ services:
       - ./docker/app/php.ini:/etc/php.ini
 
   db:
-    container_name: pgdb
+    container_name: pgdb-gizyutusyo
     image: postgres:latest
     ports:
       - "5432:5432"
     volumes:
       - ./docker/postgresql/postgresql.conf:/etc/postgresql/postgresql.conf
-      - pgdb-volume:/var/lib/postgresql/data
+      - pgdb-gizyutusyo-volume:/var/lib/postgresql/data
     environment:
       POSTGRES_DB: laravel_db
       POSTGRES_USER: laravel
@@ -42,4 +42,4 @@ services:
       - 8025:8025
 
 volumes:
-  pgdb-volume:
+  pgdb-gizyutusyo-volume:
