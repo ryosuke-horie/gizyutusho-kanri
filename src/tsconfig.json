@@ -1,0 +1,25 @@
+{
+    "compilerOptions": {
+        "target": "esnext",
+        "module": "esnext",
+        "moduleResolution": "node",
+        "lib": ["esnext", "dom"],
+        "jsx": "react", // Vue 3でJSXを使用する場合
+        "jsxFactory": "h", // Vue 3のJSX変換用
+        "experimentalDecorators": true, // デコレータの使用を許可
+        "esModuleInterop": true,
+        "strict": true,
+        "strictPropertyInitialization": false, // Vueのリアクティブなプロパティのために必要な場合がある
+        "baseUrl": ".",
+        "paths": {
+            "@/*": ["./src/*"]
+        },
+        "forceConsistentCasingInFileNames": true,
+        "noEmit": true,
+        "allowJs": true, // .vueファイル内のJavaScriptを許可
+        "skipLibCheck": true,
+        "types": ["vite/client"],
+    },
+    "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
+    "exclude": ["node_modules"]
+}
