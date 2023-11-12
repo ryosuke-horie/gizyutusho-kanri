@@ -40,53 +40,9 @@ class Kernel extends HttpKernel
             \Illuminate\Http\Middleware\AddLinkHeadersForPreloadedAssets::class,
         ],
 
-        'admin' => [
-            \App\Http\Middleware\EncryptCookies::class,
-            \App\Http\Middleware\VerifyCsrfToken::class,
-            \App\Http\Middleware\HandleInertiaRequests::class,
-            \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
-            \Illuminate\Session\Middleware\StartSession::class,
-            \Illuminate\View\Middleware\ShareErrorsFromSession::class,
-            \Illuminate\Routing\Middleware\SubstituteBindings::class,
-            \Illuminate\Http\Middleware\AddLinkHeadersForPreloadedAssets::class,
-        ],
-
-        'staff' => [
-            \App\Http\Middleware\EncryptCookies::class,
-            \App\Http\Middleware\VerifyCsrfToken::class,
-            \App\Http\Middleware\HandleInertiaRequests::class,
-            \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
-            \Illuminate\Session\Middleware\StartSession::class,
-            \Illuminate\View\Middleware\ShareErrorsFromSession::class,
-            \Illuminate\Routing\Middleware\SubstituteBindings::class,
-            \Illuminate\Http\Middleware\AddLinkHeadersForPreloadedAssets::class,
-        ],
-
-        'bussiness-operator' => [
-            \App\Http\Middleware\EncryptCookies::class,
-            \App\Http\Middleware\VerifyCsrfToken::class,
-            \App\Http\Middleware\HandleInertiaRequests::class,
-            \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
-            \Illuminate\Session\Middleware\StartSession::class,
-            \Illuminate\View\Middleware\ShareErrorsFromSession::class,
-            \Illuminate\Routing\Middleware\SubstituteBindings::class,
-            \Illuminate\Http\Middleware\AddLinkHeadersForPreloadedAssets::class,
-        ],
-
-        'corporation' => [
-            \App\Http\Middleware\EncryptCookies::class,
-            \App\Http\Middleware\VerifyCsrfToken::class,
-            \App\Http\Middleware\HandleInertiaRequests::class,
-            \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
-            \Illuminate\Session\Middleware\StartSession::class,
-            \Illuminate\View\Middleware\ShareErrorsFromSession::class,
-            \Illuminate\Routing\Middleware\SubstituteBindings::class,
-            \Illuminate\Http\Middleware\AddLinkHeadersForPreloadedAssets::class,
-        ],
-
         'api' => [
             // \Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
-            \Illuminate\Routing\Middleware\ThrottleRequests::class . ':api',
+            \Illuminate\Routing\Middleware\ThrottleRequests::class.':api',
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
     ];
@@ -99,20 +55,12 @@ class Kernel extends HttpKernel
      * @var array<string, class-string|string>
      */
     protected $middlewareAliases = [
+        'auth' => \App\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'auth.session' => \Illuminate\Session\Middleware\AuthenticateSession::class,
-        'admin' => \App\Http\Middleware\Admin\Authenticate::class,
-        'user' => \App\Http\Middleware\User\Authenticate::class,
-        'staff' => \App\Http\Middleware\Staff\Authenticate::class,
-        'bussiness-operator' => \App\Http\Middleware\BussinessOperator\Authenticate::class,
-        'corporation' => \App\Http\Middleware\Corporation\Authenticate::class,
         'cache.headers' => \Illuminate\Http\Middleware\SetCacheHeaders::class,
         'can' => \Illuminate\Auth\Middleware\Authorize::class,
-        'admin.guest' => \App\Http\Middleware\Admin\RedirectIfAuthenticated::class,
-        'user.guest' => \App\Http\Middleware\User\RedirectIfAuthenticated::class,
-        'staff.guest' => \App\Http\Middleware\Staff\RedirectIfAuthenticated::class,
-        'bussiness-operator.guest' => \App\Http\Middleware\BussinessOperator\RedirectIfAuthenticated::class,
-        'corporation.guest' => \App\Http\Middleware\Corporation\RedirectIfAuthenticated::class,
+        'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'password.confirm' => \Illuminate\Auth\Middleware\RequirePassword::class,
         'precognitive' => \Illuminate\Foundation\Http\Middleware\HandlePrecognitiveRequests::class,
         'signed' => \App\Http\Middleware\ValidateSignature::class,
